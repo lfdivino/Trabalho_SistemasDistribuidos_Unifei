@@ -10,3 +10,22 @@ angular.module('leitor', ['leitor.controllers', 'ionic', 'ngCordova'])
     
   });
 })
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+    .state('signin', {
+      url: "/sign-in",
+      templateUrl: "sign-in.html",
+      controller: 'leitorController'
+    })
+    .state('forgotpassword', {
+      url: "/forgot-password/:mesa",
+      templateUrl: "forgot-password.html",
+      controller: 'cardapioController',
+    });
+
+
+   $urlRouterProvider.otherwise("/sign-in");
+
+});

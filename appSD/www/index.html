@@ -27,19 +27,58 @@
   </head>
   <body ng-app="leitor">
 
-    <ion-pane>
-      <ion-content style="text-align: center" ng-controller="leitorController">
-        <div class="item">
-          <img src="img/ionic.png">
-          <h2>Leitor QR Code</h2>
-          <p>Escaneia um QR Code</p>
-        </div>
+    <!--<ion-nav-bar animation="nav-title-slide-ios7" type="bar-positive" back-button-type="button-icon" back-button-icon="ion-arrow-left-c"></ion-nav-bar>-->
 
-        <div class="item">
-          <button class="button button-block button-positive" ng-click="lerCodigo()"> Escanear </button>
-        </div>
-      </ion-content>
-    </ion-pane>
+      <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+      <script id="sign-in.html" type="text/ng-template">
+        <ion-view>
+          <img src="img/restaurante_bg.jpg" class="bg">
+          <ion-content style="text-align: center" ng-controller="leitorController">
+            <div class="tela_escanear">
+              <h2 class="sombraTexto">Cardápio Online</h2>
+              <button class="button button-block button-positive" ng-click="lerCodigo()">Escanear</button>
+            </div>
+          </ion-content>
+        </ion-view>
+      </script>
+
+      <script id="forgot-password.html" type="text/ng-template">
+        <ion-view>
+          <img src="img/restaurante_bg.jpg" class="bg">
+          <ion-content style="text-align: center" ng-controller="cardapioController">
+            <div class="card">
+              <img src="{{obj_retorno_servidor.restaurante.logo}}">
+              <h2>Mesa: {{mesa}}</h2>
+              <h3>Comanda: {{obj_retorno_servidor.comanda.id}}</h3>
+            </div>
+
+            <div class="card">
+              <div ng-repeat="item in obj_retorno_servidor.cardapio"> 
+
+                <div class="item item-text-wrap">
+                  <div class="row" class="texto_cardapio">
+                    <div class="col col-50">
+                      <img src="{{item.foto}}" class="foto_prato_cardapio">
+                    </div>
+                    <div class="col col-50">
+                      <div>{{item.titulo}}</div>
+                      <div>
+                        <button class="button button-positive">Pedir</button>
+                      </div>
+                      <div class="texto_cardapio_descricao">{{item.descricao}}</div>
+                      <div>Quantidade:</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </ion-content>
+        </ion-view>
+      </script>
+
   </body>
 
 </html>
