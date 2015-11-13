@@ -38,6 +38,7 @@
             <div class="tela_escanear">
               <h2 class="sombraTexto">Cardápio Online</h2>
               <button class="button button-block button-positive" ng-click="lerCodigo()">Escanear</button>
+              <button class="button button-block button-positive" ng-click="mudar_tela()">Mudar Tela</button>
             </div>
           </ion-content>
         </ion-view>
@@ -64,10 +65,11 @@
                     <div class="col col-50">
                       <div>{{item.titulo}}</div>
                       <div>
-                        <button class="button button-positive">Pedir</button>
+                        <input type="text" id="qtd_produto{{item.id}}">
+                        <button class="button button-positive" ng-click="realizar_pedido({{item.id}})">Pedir</button>
                       </div>
                       <div class="texto_cardapio_descricao">{{item.descricao}}</div>
-                      <div>Quantidade:</div>
+                      <div>Quantidade: <label id="qtd_pedida{{item.id}}"></label></div>
                     </div>
                   </div>
                 </div>

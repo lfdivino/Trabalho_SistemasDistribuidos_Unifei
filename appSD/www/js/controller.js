@@ -10,6 +10,10 @@ angular.module('leitor.controllers', ['ionic', 'ngCordova'])
 			});
 		}
 
+		$scope.mudar_tela = function(){
+			$state.go('forgotpassword', { mesa: "2" });
+		}
+
 	})
 
 	.controller('cardapioController', function($scope, $state, $stateParams){
@@ -47,4 +51,12 @@ angular.module('leitor.controllers', ['ionic', 'ngCordova'])
 					}
 				}
 		};
+
+		$scope.realizar_pedido = function(id_produto){
+			var qtd = document.getElementById('qtd_produto' + id_produto);
+			var qtd_pedida = document.getElementById('qtd_pedida' + id_produto);
+			alert("id: " + id_produto + " qtd: " + qtd.value);
+			qtd_pedida.innerText = qtd.value;
+		}
+		
 	});
